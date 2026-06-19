@@ -37,6 +37,46 @@ export const TARIF_C = 1.58;
  * @param {boolean} estFerie   - True si la course a lieu un jour férié
  * @returns {number} Le prix total de la course en euros.
  */
-export function calculateFare(jourSemaine, hour, zone, distance, estFerie) {
 
+export function calculateFare(jourSemaine, hour, zone, distance, estFerie) {
+  var tarifUtilise=null;
+
+  switch (zone) {
+  case Zone.URBAINE:
+      if(jourSemaine===0) {
+          if(hour<7){
+            tarifUtilise=TARIF_C
+          } else {tarifUtilise=TARIF_B}
+      } else if (estFerie===true){
+        tarifUtilise=TARIF_B
+      } else {
+        if(hour>=10 && hour<17){
+          tarifUtilise=TARIF_A
+        } else {
+          tarifUtiliser=TARIF_B
+        }
+      }
+        
+    tarifUtilise=TARIF_C;
+    break;
+
+  case Zone.SUBURBAINE:
+      if(jourSemaine===0 || estFerie ===true){
+        tarifUtilise=TARIF_C;
+      } else if (hour>=7 && hour<19) {
+        tarifUtilise=TARIF_B
+      } else {
+        tarifUtilise=TARIF_C
+        }
+
+    break;
+
+  case Zone.HORS_ZONE:
+    tarifUtilise=TARIF_C;
+    break;
+
+  default:
+    console.log("Erreur dans la course.");
+} return (tarifUtilise*distance)+PRISE_EN_CHARGE
+  
 }
