@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
       environment: 'node',
       globals: true,
     },
-    base: env.VITE_BASE_URL || '/',
+    base: '/taxi-fare-react/',
   }
 })
 
