@@ -56,8 +56,6 @@ export function calculateFare(jourSemaine, hour, zone, distance, estFerie) {
           tarifUtilise=TARIF_B
         }
       }
-        
-    tarifUtilise=TARIF_C;
     break;
 
   case Zone.SUBURBAINE:
