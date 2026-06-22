@@ -53,7 +53,7 @@ export function calculateFare(jourSemaine, hour, zone, distance, estFerie) {
         if(hour>=10 && hour<17){
           tarifUtilise=TARIF_A
         } else {
-          tarifUtiliser=TARIF_B
+          tarifUtilise=TARIF_B
         }
       }
         
